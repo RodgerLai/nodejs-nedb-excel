@@ -3,16 +3,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import en from './en';
-import es from './es';
+/* import es from './es';
 import fr from './fr';
 import hu from './hu';
 import ptbr from './pt-br';
 import nl from './nl';
 import ru from './ru';
-import zhtw from './zh-tw';
+import zhtw from './zh-tw'; */
 import zhcn from './zh-cn';
 
-//const languages = { en, es, fr, hu, ptbr, nl, ru, zhtw, zhcn };
+/* const languages = { en, es, fr, hu, ptbr, nl, ru, zhtw, zhcn }; */
 const languages = { en, zhcn };
 
 export default function translate(key) {
