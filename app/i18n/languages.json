@@ -1,0 +1,4 @@
+[
+    { "value": "en", "iso": "gb", "name": "English", "englishName": "English" },
+    { "value": "zhcn", "iso": "cn", "name": "简中", "englishName": "Simplified Chinese" }
+]
