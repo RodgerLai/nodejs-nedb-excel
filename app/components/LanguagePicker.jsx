@@ -49,10 +49,10 @@ LanguagePicker.propTypes = {
 };
 
 LanguagePicker.defaultProps = {
-    currentLanguage: 'en',
+    currentLanguage: 'zhcn',
     onChangeLanguage: noop,
     strings: {
-        header: 'Choose a language'
+        header: '选择语言'
     }
 };
 
