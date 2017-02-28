@@ -13,6 +13,7 @@ export default function reducer(state = {
     switch (action.type) {
     case TOGGLE_SUMMARY_MODE:
         return {
+            /* Object.assign({},state,{drawerOpen: true,summaryMode: false}); */
             ...state,
             summaryMode: !state.summaryMode
         };
