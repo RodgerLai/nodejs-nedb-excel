@@ -1,0 +1,160 @@
+<!--大队管理页面-->
+<!--main content start-->
+<section id="main-content">
+    <section class="wrapper">
+        <!-- page start-->
+        <div class="row">
+            <aside class="profile-info col-lg-1">
+                </aside>
+            <aside class="profile-info col-lg-10">
+                <section class="panel">
+                    <div class="panel-body bio-graph-info">
+                            <h1 class="drg-event-title">路况信息</h1>
+                        <div class="panel-body">
+                            <form class="form-horizontal tasi-form">
+                                <!--select picker start-->
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-1">道路</label>
+
+                                    <div class="col-sm-4">
+                                        <input type="text" id="query_road" class="cp2 form-control">
+                                    </div>
+
+                                    <label class="control-label col-sm-1">日期</label>
+                                    <div class="col-sm-4">
+                                        <div class="input-prepend">
+                                            <input id="query_daterange" type="text" class=" form-control" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--select picker end-->
+                                <div class="form-group">
+
+                                    <label class="control-label col-sm-1">上报大队</label>
+
+                                    <div class="col-sm-4">
+                                        <select class="form-control m-bot15" id="query_dadui">
+                                            <option value="*">全部</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <a id="query_Btn" class="btn btn-success">
+                                            <i class="glyphicon glyphicon-search"></i> &nbsp;&nbsp;&nbsp;查&nbsp;&nbsp;&nbsp;询&nbsp;&nbsp;&nbsp;
+                                        </a>
+                                        <button type="reset"  class="btn btn-warning">
+                                            <i class="glyphicon glyphicon-refresh"></i> &nbsp;重置 &nbsp;
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div id="toolbar" style="margin: 10px">
+                            <section class="panel">
+                                <div class="panel-body">
+                                    <form class="form-inline">
+                                        <div class="form-group">
+                                            <button id="remove" class="btn btn-danger" disabled>
+                                                <i class="glyphicon glyphicon-trash"></i> 删除
+                                            </button>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <a id="add" class="btn btn-success" data-toggle="modal" href="#modal_new">
+                                                <i class="glyphicon glyphicon-cloud-upload"></i> 上报
+                                            </a>
+                                        </div>
+                                        <div class="form-group">
+                                            <a id="cancel" class="btn btn-warning" style="display:none">
+                                                <i class="icon icon-remove-circle">取消</i>
+                                            </a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </section>
+                        </div>
+                            <section class="panel">
+                                <table id="roadTable"></table>
+                            </section>
+                    </div>
+                </section>
+
+            </aside>
+        </div>
+
+        <!-- page end-->
+    </section>
+</section>
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modal_new" class="modal fade">
+    <div class="modal-dialog" style="width: 800px !important;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                <h4 class="modal-title"><i class="glyphicon glyphicon-new-window"><span id="editname"></span></i>&nbsp;&nbsp;&nbsp;上报路况</h4>
+            </div>
+            <div class="modal-body">
+
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label  class="col-lg-2 control-label">道路</label>
+                        <div class="col-lg-10">
+                            <input type="text" class="form-control" id="new_road" placeholder="道路">
+                        </div>
+                    </div>
+                    <div class="form-group has-js">
+                        <label  class="col-lg-2 control-label">路况等级</label>
+                        <div class="radios col-lg-10">
+                            <label class="label_radio" for="radio-01">
+                                <input name="sample-radio" id="radio-01" value="1" type="radio" checked />正常
+                            </label>
+                            <label class="label_radio" for="radio-02">
+                                <input name="sample-radio" id="radio-02" value="2" type="radio" /> 拥挤
+                            </label>
+                            <label class="label_radio" for="radio-03">
+                                <input name="sample-radio" id="radio-03" value="3" type="radio" checked/> 堵塞
+                            </label>
+                        </div>
+                        </div>
+                    <div class="form-group">
+                        <label class="col-lg-2 control-label">路况</label>
+                        <div class="col-lg-10">
+                            <textarea rows="12" class="form-control" id="new_condition" placeholder="路况"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label  class="col-lg-2 control-label">所属大队</label>
+                        <div class="col-lg-10">
+                            <select class="form-control" id="new_dadui"><option value="*">全部</option></select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <a  id="submit_new"  class="btn btn-info"><i class="glyphicon glyphicon-ok"></i>&nbsp;提交</a>
+                            <span class="remind"></span>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+{{#section 'css'}}
+    <link rel="stylesheet" href="stylesheets/select2-bootstrap.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/select2.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/bootstrap-table.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/bootstrap-editable.css" media="screen">
+    <link rel="stylesheet" href="stylesheets/daterangepicker.css" media="screen">
+{{/section}}
+<!--main content end-->
+{{#section 'js'}}
+    <script src="javascripts/lib/date.js"></script>
+    <script src="javascripts/lib/daterangepicker.js"></script>
+    <script src="javascripts/lib/select2.js"></script>
+    <script src="javascripts/road.js"></script>
+{{/section}}
+
