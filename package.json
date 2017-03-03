@@ -58,9 +58,19 @@
     "webpack-dev-server": "1.16.2"
   },
   "dependencies": {
-    "superagent": "2.3.0"
+    "body-parser": "~1.15.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "ejs": "~2.5.2",
+    "express": "~4.14.0",
+    "morgan": "~1.7.0",
+    "nedb": "^1.8.0",
+    "nodemon": "^1.11.0",
+    "path": "^0.12.7",
+    "serve-favicon": "~2.3.0"
   },
   "scripts": {
+    "start": "nodemon ./server/bin/www",
     "build": "webpack --progress --colors --display-error-details",
     "prod": "cross-env NODE_ENV=production webpack --progress --colors --config webpack.config.prod.js -p --display-error-details",
     "clean": "rimraf dist/*bundle* dist/*vendor* dist/*index*",
