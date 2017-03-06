@@ -26,9 +26,23 @@ var update = function(req,res,next){
           res.json(numReplaced);
       });
 }
-
+var remove = function(req,res,next){
+   
+     console.log(req.body);
+    db.users.remove(req.body,{}, function (err, numRemoved) {
+        //{ "name": "admin","age": 42  }   { "name": {"$regex":/s/}
+           
+            if(err!="null"){
+                res.json(numRemoved);
+            }else{
+                console.log(err);
+            }
+         
+      });
+}
 module.exports = {
     add:add,
     find:find,
     update:update,
+    remove:remove,
 };

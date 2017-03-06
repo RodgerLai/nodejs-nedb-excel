@@ -2,7 +2,7 @@
   "name": "react-antd-admin",
   "version": "1.0.0",
   "description": "React Admin Boilerplate, with React + Ant Design",
-  "author": "jiangxy <foolbeargm@gmail.com>",
+  "author": "RodgerLai",
   "license": "Apache-2.0",
   "engines": {
     "node": ">=5.0 <7",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:jiangxy/react-antd-admin.git"
+    "url": ""
   },
   "keywords": [
     "ant",
@@ -58,6 +58,7 @@
     "webpack-dev-server": "1.16.2"
   },
   "dependencies": {
+    "superagent": "2.3.0",
     "body-parser": "~1.15.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
@@ -67,6 +68,8 @@
     "nedb": "^1.8.0",
     "nodemon": "^1.11.0",
     "path": "^0.12.7",
+    "multiparty": "~4.1.2",
+    "node-xlsx": "~0.7.4",
     "serve-favicon": "~2.3.0"
   },
   "scripts": {

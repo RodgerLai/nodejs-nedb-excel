@@ -12,6 +12,8 @@
     "ejs": "~2.5.2",
     "express": "~4.14.0",
     "morgan": "~1.7.0",
+    "multiparty": "~4.1.2",
+    "node-xlsx": "~0.7.4",
     "serve-favicon": "~2.3.0"
   }
 }
