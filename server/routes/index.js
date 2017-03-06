@@ -42,8 +42,14 @@ router.post('/file/uploading', function(req, res, next){
           var obj = xlsx.parse(dstPath);
          // console.log(obj[0].data);
           var sheet = obj[0];
-          console.log(sheet);
-           console.log(sheet.data[2][0]);
+         // console.log(sheet);
+          var datas = sheet.data;
+              datas.splice(0,1)//去除头部： 序号	公众号	ID	分类	粉丝数/w	头条/元	二条/元	三条/元	四条/元	备注
+                              //	是否开通评论功能	阅读量	是否认证	媒体手机	媒体QQ	折扣	下次更新时间	商务对接
+
+        
+            console.log(datas);
+          
         }
    
       });
