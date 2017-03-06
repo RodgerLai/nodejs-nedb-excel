@@ -9,7 +9,7 @@
 # node
 node_modules
 npm-debug.log
-server/public/uploadfile/**
+server/public/uploadfile/*.xlsx
 # other
 # dist/
 # !dist/*.html

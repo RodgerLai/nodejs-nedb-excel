@@ -1,3 +1,4 @@
+
 function jsonWrite(res, ret) {
     if(typeof ret === 'undefined') {
         res.json({
@@ -8,6 +9,7 @@ function jsonWrite(res, ret) {
         res.json(ret);
     }
 }
+
 
 module.exports = {
     jsonWrite:jsonWrite,
