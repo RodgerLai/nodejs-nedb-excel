@@ -31,7 +31,7 @@ router.post('/delete',function(req,res,next){
 
 /* 上传*/
 router.post('/upload', function(req, res, next){
-  console.log("fuck");
+  
   //生成multiparty对象，并配置上传目标路径
   var uploadDir = path.resolve(__dirname, '../', 'public', 'uploadfile');
   var form = new multiparty.Form({uploadDir: uploadDir});
@@ -66,8 +66,10 @@ router.post('/upload', function(req, res, next){
                               //	是否开通评论功能	阅读量	是否认证	媒体手机	媒体QQ	折扣	下次更新时间	商务对接
           //console.log(datas);
            var model_arr = datas.reduce(gzhModel.gzhReducer,[]);
-           console.log(model_arr);
-           //gzhDao.add(model_arr,res,next);      
+           //console.log(model_arr);
+           console.log(model_arr.length);
+           //gzhDao.add(model_arr,res,next);   
+           res.json({"data":"导入成功"+model_arr.length+"条，导入失败YY条，导入失败的行：1,2,3","errorMsg":"","success":true,"totalCount":model_arr.length});   
             
         }   
       });

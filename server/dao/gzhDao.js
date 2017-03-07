@@ -1,6 +1,6 @@
 var db = require("../db/nedb");
 var add = function(req,res,next){
-    db.gzh.insert(req, function (err, newDocs) {
+    db.gzh.insert(req.body, function (err, newDocs) {
     //[{ "name": "admin","pwd":"123456","age": 42  }, {"name": "super","pwd":"123456", "age": 11 }]
     //[{ "name": "扑克牌","pwd":"123456","age": 42,"role":"low"  }, {"name": "奶奶的","pwd":"123456", "age": 11,"role":"high"  }]
     // Two documents were inserted in the database
@@ -13,7 +13,7 @@ var find = function(req,res,next){
    //  console.log(req.body);
     db.gzh.find(req.body, function (err, docs) {
         //{ "name": "admin","age": 42  }   { "name": {"$regex":/s/}
-        console.log(err);
+        console.log(docs.length);
           res.json(docs);
       });
 }
