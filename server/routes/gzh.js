@@ -30,7 +30,7 @@ router.post('/delete',function(req,res,next){
 });
 
 /* 上传*/
-router.post('/upload', function(req, res, next){
+router.post('/import', function(req, res, next){
   
   //生成multiparty对象，并配置上传目标路径
   var uploadDir = path.resolve(__dirname, '../', 'public', 'uploadfile');

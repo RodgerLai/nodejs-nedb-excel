@@ -208,7 +208,7 @@ class InnerForm extends React.PureComponent {
     const uploadProps = {
       name: 'file',
       //action: `${globalConfig.getAPIPath()}/${this.props.tableName}/import`,
-      action: `http://localhost:3000/gzh/upload`,
+      action: `http://localhost:3000/api/gzh/import`,
       headers: {
                 'X-Requested-With':null
               },

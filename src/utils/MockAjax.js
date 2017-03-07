@@ -115,16 +115,16 @@ class MockAjax {
   getCurrentUser() {
     return mockPromise(resolve => {
       result.success = true;
-      result.data = 'guest';
+      result.data = 'admin';
       resolve(result);
     });
   }
 
   login(username, password) {
     return mockPromise(resolve => {
-      if (username === 'guest' && password === 'guest') {
+      if (username === 'admin' && password === 'admin') {
         result.success = true;
-        result.data = 'guest';
+        result.data = 'admin';
         resolve(result);
       } else {
         result.success = false;
