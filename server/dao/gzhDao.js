@@ -17,6 +17,30 @@ var find = function(req,res,next){
           res.json(docs);
       });
 }
+var findByPage = function(req,res,next){
+    //body  - {"page":1,"pageSize":50,"name":"guest"}
+    //res   -{"code":0,"data":[{"experience":"Less than 1 year",
+    //"frequency":"2 to 5 SMS daily","id":6,"isNative":"no","phoneModel":"Nokia"}],
+    //"message":"","success":true,"total":31461}
+    var body = req.body;
+    var page = body.page;
+    var pageSize = body.pageSize;
+    var skip = (page-1)*pageSize;
+    
+    //留下查询条件
+    delete body.page;
+    delete body.pageSize;
+    var name = new RegExp(body.name); 
+    
+    db.gzh.find({ name:{$regex:name}}).sort({ _id: 1 }).skip(skip).limit(pageSize).exec(function (err, docs) {
+    // docs is [doc3, doc1]
+     if(err!="null"){
+         res.json({"code":0,"data":docs,"message":"","success":true,"total":docs.length});
+     }else{
+         res.json({"code":10,"data":null,"message":"query data error","success":false,"total":null});
+     }
+    });
+}
 var update = function(req,res,next){
    
      console.log(req.body);
@@ -45,4 +69,5 @@ module.exports = {
     find:find,
     update:update,
     remove:remove,
+    findByPage:findByPage,
 };

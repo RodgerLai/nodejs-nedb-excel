@@ -29,6 +29,10 @@ const sidebarMenu = [
       },
       {
         key: 'option3',
+        name: '公众号管理',
+      },
+      {
+        key: 'option3',
         name: '选项3',
       },
     ],

@@ -19,4 +19,7 @@ router.post('/update',function(req,res,next){
 router.post('/delete',function(req,res,next){
     usersDao.remove(req,res,next);
 });
+router.get('/delete',function(req,res,next){
+    usersDao.remove(req,res,next);
+});
 module.exports = router;

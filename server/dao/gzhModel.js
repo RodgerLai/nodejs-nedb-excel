@@ -19,7 +19,7 @@ var gzh={
                     mediaqq:"",//媒体QQ
                     discount:"",//折扣
                     nextupdate:"",//下次更新时间
-                    businessdock:"",//商务对接	
+                    businessdock:"",//商务对接.	
         }
     },
     gzhReducer : function(previousValue, currentValue){

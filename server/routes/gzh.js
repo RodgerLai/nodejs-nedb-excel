@@ -22,6 +22,9 @@ router.post('/add',function(req,res,next){
 router.post('/find',function(req,res,next){
     gzhDao.find(req,res,next);
 });
+router.post('/findByPage',function(req,res,next){
+    gzhDao.findByPage(req,res,next);
+});
 router.post('/update',function(req,res,next){
     gzhDao.update(req,res,next);
 });
