@@ -19,7 +19,7 @@ var gzh={
                     mediaqq:"",//媒体QQ
                     discount:"",//折扣
                     nextupdate:"",//下次更新时间
-                    businessdock:"",//商务对接.	
+                    businessdock:"",//商务对接	
         }
     },
     gzhReducer : function(previousValue, currentValue){
@@ -35,7 +35,7 @@ var gzh={
         // numReplaced = 1, upsert = { _id: 'id5', planet: 'Pluton', inhabited: false }
         // A new document { _id: 'id5', planet: 'Pluton', inhabited: false } has been added to the collection
         if(err!="null"){
-            if(upsert==undefined){
+            if(upsert==undefined){//重复的数据的处理
                // console.log(upsert+"  -gid:");
                 console.log(obj.gid);
             }

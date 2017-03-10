@@ -100,12 +100,12 @@ class Header extends React.PureComponent {
 
     this.menu = menu;
 
-    // 注意用户菜单的最后一项必定是注销
+    // 注意用户菜单的最后一项必定是注销  // {logoutMenuItem}
     const userMenu = (
       <SubMenu title={<span><Icon type="user" />{this.props.userName}</span>}>
         {userMenuItems && userMenuItems[0] ? userMenuItems : null}
         <Menu.Divider />
-        {logoutMenuItem}
+      
       </SubMenu>
     );
 

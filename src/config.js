@@ -11,7 +11,7 @@
 module.exports = {
   name: '媒体资源管理后台',  // 项目的名字
   favicon: 'http://jxy.me/favicon.ico',  // 设置网页的favicon, 可以是外链, 也可以是本地
-  footer: '<a target="_blank" href="https://github.com/RodgerLai/nodejs-nedb-excel">foolbear</a>版权所有 © 2017-2099',  // footer中显示的字, 可以嵌入html标签
+  footer: '<a target="_blank" href="http://blog.csdn.net/u010543785">RodgerLai</a>版权所有 © 2017-2099',  // footer中显示的字, 可以嵌入html标签
 
   debug: false,  // 是否开启debug模式, 不会请求后端接口, 使用mock的数据
 
@@ -45,7 +45,7 @@ module.exports = {
 
   sidebar: {  // 侧边栏相关配置
     collapsible: true,  // 是否显示折叠侧边栏的按钮
-    autoMenuSwitch: true,  // 只展开一个顶级菜单, 其他顶级菜单自动折叠
+    autoMenuSwitch: false,  // 只展开一个顶级菜单, 其他顶级菜单自动折叠
   },
 
   DBTable: {  // DBTable组件相关配置
@@ -61,11 +61,12 @@ module.exports = {
    * @returns {boolean}
    */
   isCrossDomain() {
-    if (this.api.host && this.api.host !== '') {
-      return true;
-    } else {
-      return false;
-    }
+    // if (this.api.host && this.api.host !== '') {
+    //   return true;
+    // } else {
+    //   return false;
+    // }
+    return true;
   },
 
   /**

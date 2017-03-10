@@ -9,6 +9,7 @@
 # node
 node_modules
 npm-debug.log
+server/db/data/*
 server/public/uploadfile/*.xlsx
 # other
 # dist/

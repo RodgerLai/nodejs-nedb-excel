@@ -30,15 +30,101 @@ var findByPage = function(req,res,next){
     //留下查询条件
     delete body.page;
     delete body.pageSize;
-    var name = new RegExp(body.name); 
-    
-    db.gzh.find({ name:{$regex:name}}).sort({ _id: 1 }).skip(skip).limit(pageSize).exec(function (err, docs) {
-    // docs is [doc3, doc1]
-     if(err!="null"){
-         res.json({"code":0,"data":docs,"message":"","success":true,"total":docs.length});
-     }else{
-         res.json({"code":10,"data":null,"message":"query data error","success":false,"total":null});
-     }
+
+    console.log(body);
+    var findObj ={};
+    if(body.gid!=undefined){//id
+           findObj['gid']={$regex:new RegExp(body.gid)};
+    }
+    if(body.name!=undefined){//name
+        findObj['name']={$regex:new RegExp(body.name)};
+    }
+    if(body.type!=undefined){//name
+        findObj['type']={$in:body.type};
+    }
+
+    if(body.h1Begin!=undefined&&body.h1End==undefined){
+         findObj['h1']={$gte:body.h1Begin};
+    }
+    if(body.h1Begin==undefined&&body.h1End!=undefined){
+         findObj['h1']={$lte:body.h1End};
+    }
+     if(body.h1Begin!=undefined&&body.h1End!=undefined){
+         findObj['h1']={$gte:body.h1Begin,$lte:body.h1End};
+    }
+   
+    if(body.h2Begin!=undefined&&body.h2End==undefined){
+         findObj['h2']={$gte:body.h2Begin};
+    }
+    if(body.h2Begin==undefined&&body.h2End!=undefined){
+         findObj['h2']={$lte:body.h2End};
+    }
+     if(body.h2Begin!=undefined&&body.h2End!=undefined){
+         findObj['h2']={$gte:body.h2Begin,$lte:body.h2End};
+    }
+   
+    if(body.h3Begin!=undefined&&body.h3End==undefined){
+         findObj['h3']={$gte:body.h3Begin};
+    }
+    if(body.h3Begin==undefined&&body.h3End!=undefined){
+         findObj['h3']={$lte:body.h3End};
+    }
+     if(body.h3Begin!=undefined&&body.h3End!=undefined){
+         findObj['h3']={$gte:body.h3Begin,$lte:body.h3End};
+    }
+
+     if(body.h4Begin!=undefined&&body.h4End==undefined){
+         findObj['h4']={$gte:body.h4Begin};
+    }
+    if(body.h4Begin==undefined&&body.h4End!=undefined){
+         findObj['h4']={$lte:body.h4End};
+    }
+     if(body.h4Begin!=undefined&&body.h4End!=undefined){
+         findObj['h4']={$gte:body.h4Begin,$lte:body.h4End};
+    }
+   
+    if(body.fansBegin!=undefined&&body.fansEnd==undefined){
+         findObj['fans']={$gte:body.fansBegin};
+    }
+    if(body.fansBegin==undefined&&body.fansEnd!=undefined){
+         findObj['fans']={$lte:body.fansEnd};
+    }
+     if(body.fansBegin!=undefined&&body.fansEnd!=undefined){
+         findObj['fans']={$gte:body.fansBegin,$lte:body.fansEnd};
+    }
+
+     if(body.discountBegin!=undefined&&body.discountEnd==undefined){
+         findObj['discount']={$gte:body.discountBegin};
+    }
+    if(body.discountBegin==undefined&&body.discountEnd!=undefined){
+         findObj['discount']={$lte:body.discountEnd};
+    }
+     if(body.discountBegin!=undefined&&body.discountEnd!=undefined){
+         findObj['discount']={$gte:body.discountBegin,$lte:body.discountEnd};
+    }
+   
+   
+    if(body.commentfunc!=undefined){
+        findObj['commentfunc']=body.commentfunc;
+    }
+    if(body.isauth!=undefined){
+        findObj['isauth']=body.isauth;
+    }
+
+     if(body.businessdock!=undefined){//businessdock
+        findObj['businessdock']={$in:body.businessdock};
+    }
+
+    db.gzh.count(findObj, function (err, count) {
+        db.gzh.find(findObj).sort({ _id: 1 }).skip(skip).limit(pageSize).exec(function (err, docs) {
+        // docs is [doc3, doc1]
+        if(err!="null"){
+            
+            res.json({"code":0,"data":docs,"message":"","success":true,"total":count});
+        }else{
+            res.json({"code":10,"data":null,"message":"query data error","success":false,"total":null});
+        }
+            });
     });
 }
 var update = function(req,res,next){
