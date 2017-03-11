@@ -10,8 +10,8 @@
 
 module.exports = {
   name: '媒体资源管理后台',  // 项目的名字
-  favicon: 'http://jxy.me/favicon.ico',  // 设置网页的favicon, 可以是外链, 也可以是本地
-  footer: '<a target="_blank" href="http://blog.csdn.net/u010543785">RodgerLai</a>版权所有 © 2017-2099',  // footer中显示的字, 可以嵌入html标签
+  favicon: 'http://localhost:3000/images/Media.ico',  // 设置网页的favicon, 可以是外链, 也可以是本地
+  footer: '<a target="_blank" href="#">RodgerLai</a>版权所有 © 2017-2099',  // footer中显示的字, 可以嵌入html标签
 
   debug: false,  // 是否开启debug模式, 不会请求后端接口, 使用mock的数据
 
@@ -27,7 +27,7 @@ module.exports = {
   api: {  // 对后端请求的相关配置
     host: 'http://localhost:3000',  // 调用ajax接口的地址, 默认值空, 如果是跨域的, 服务端要支持CORS
     path: '/api',  // ajax请求的路径
-    timeout: 15000,  // 请求的超时时间, 单位毫秒
+    timeout: 150000,  // 请求的超时时间, 单位毫秒
   },
 
   login: {  // 登录相关配置

@@ -15,12 +15,12 @@ const sidebarMenu = [
   {
     key: 'media',  // route时url中的值
     name: '媒体资源',  // 在菜单中显示的名称
-    icon: 'smile',  // 图标是可选的
+    icon: 'cloud-o',  // 图标是可选的
     child: [
       {
         key: 'gzh',
-        name: '公众号管理',
-        icon: 'play-circle',   // 二级三级菜单也可以带图标
+        name: '微信公众号管理',
+        icon: 'solution',   // 二级三级菜单也可以带图标
       },
     ],
   },
@@ -28,17 +28,17 @@ const sidebarMenu = [
   {
     key: 'user',
     name: '用户管理',
-    icon: 'appstore',
+    icon: 'setting',
      child: [
       {
         key: 'role',
         name: '权限管理',
-        icon: 'play-circle',   // 二级三级菜单也可以带图标
+        icon: 'tag',   // 二级三级菜单也可以带图标
       },
       {
         key: 'userinfo',
         name: '用户信息',
-        icon: 'play-circle',   // 二级三级菜单也可以带图标
+        icon: 'user',   // 二级三级菜单也可以带图标
       },
     ],
     },

@@ -37,7 +37,7 @@ var gzh={
         if(err!="null"){
             if(upsert==undefined){//重复的数据的处理
                // console.log(upsert+"  -gid:");
-                console.log(obj.gid);
+                console.log("更新数据："+obj.gid);
             }
         }else{
              console.log(err);

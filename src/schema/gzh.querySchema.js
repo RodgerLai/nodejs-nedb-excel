@@ -17,9 +17,17 @@ module.exports = [
     title: '类型',
     dataType: 'int',
     showType: 'multiSelect',  // 下拉框选择, antd版本升级后, option的key要求必须是string, 否则会有个warning, 后端反序列化时要注意
-    options: [{key: '地域', value: '地域'}, {key: '教育', value: '教育'}, {key: '金融财经', value: '金融财经'},
-     {key: '百科', value: '百科'}, {key: '管理', value: '管理'}, {key: '创业', value: '创业'}, {key: '互联网', value: '互联网'}, {key: '新闻资讯', value: '新闻资讯'},
-      {key: '电商', value: '电商'}],
+    options: [{key: '金融财经', value: '金融财经'}, {key: '管理', value: '管理'}, {key: '互联网', value: '互联网'}
+    , {key: '创业', value: '创业'}, {key: '新闻资讯', value: '新闻资讯'}, {key: '电商', value: '电商'}
+    , {key: '营销', value: '营销'}, {key: '科技', value: '科技'}, {key: '地域', value: '地域'}
+    , {key: '职场', value: '职场'}, {key: '教育', value: '教育'}, {key: '法律', value: '法律'}
+    , {key: '旅行', value: '旅行'}, {key: '汽车', value: '汽车'}, {key: '母婴', value: '母婴'}
+    , {key: '娱乐', value: '娱乐'}, {key: '搞笑', value: '搞笑'}, {key: '音乐', value: '音乐'}
+    , {key: '电影', value: '电影'}, {key: '房产', value: '房产'}, {key: '两性', value: '两性'} 
+    , {key: '时尚', value: '时尚'}, {key: '情感', value: '情感'}, {key: '星座', value: '星座'}
+    , {key: '游戏', value: '游戏'}, {key: '美食', value: '美食'}, {key: '阅读', value: '阅读'}
+    , {key: '视觉', value: '视觉'}, {key: '体育', value: '体育'}, {key: '生活', value: '生活'}
+    , {key: '健康', value: '健康'}, {key: '百科', value: '百科'}, {key: '其他', value: '其他'}],
     //defaultValue: '*', // 这个defaultValue必须和options中的key是对应的
   },
     {
@@ -82,9 +90,6 @@ module.exports = [
   {
     key: 'businessdock',
     title: '商务对接',
-    dataType: 'int',
-    showType: 'multiSelect',  // 下拉框选择, antd版本升级后, option的key要求必须是string, 否则会有个warning, 后端反序列化时要注意
-    options: [{key: '李勤', value: '李勤'},{key: '李四', value: '李四'}],
-    //defaultValue: '*', // 这个defaultValue必须和options中的key是对应的
+    dataType: 'varchar',
   },
 ];

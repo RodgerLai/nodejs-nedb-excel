@@ -4,7 +4,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var cors = require('cors');
+//var cors = require('cors');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -13,19 +13,23 @@ var gzh = require('./routes/gzh');
 var app = express();
 //设置跨域访问
 //app.use(cors());
-app.all('*', function(req, res, next) {
-    //console.log("-跨域访问");
-    res.header("Access-Control-Allow-Origin", "http://localhost:8080");
-    res.header("Access-Control-Allow-Headers", "Content-Type,X-Requested-With");
-    res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
-    res.header("Access-Control-Allow-Credentials","true");
-    // res.header("X-Powered-By",' 3.2.1')
-     res.header("Content-Type", "application/json;charset=utf-8");
-    next();
-});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.engine('html', require('ejs').__express);
+app.set('view engine', 'html');
+
+// app.all('*', function(req, res, next) {
+//     //console.log("-跨域访问");
+//     res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+//     res.header("Access-Control-Allow-Headers", "Content-Type,X-Requested-With");
+//     res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+//     res.header("Access-Control-Allow-Credentials","true");
+//     // res.header("X-Powered-By",' 3.2.1')
+//      res.header("Content-Type", "application/json;charset=utf-8");
+//     next();
+// });
+
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -35,7 +39,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api', index);
+app.use('/', index);
 app.use('/api/users', users);
 app.use('/api/gzh', gzh);
 

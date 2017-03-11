@@ -74,7 +74,7 @@
     "superagent": "2.3.0"
   },
   "scripts": {
-    "start": "nodemon ./server/bin/www",
+    "start": "nodemon --max_old_space_size=2000 ./server/bin/www",
     "build": "webpack --progress --colors --display-error-details",
     "prod": "cross-env NODE_ENV=production webpack --progress --colors --config webpack.config.prod.js -p --display-error-details",
     "clean": "rimraf dist/*bundle* dist/*vendor* dist/*index*",

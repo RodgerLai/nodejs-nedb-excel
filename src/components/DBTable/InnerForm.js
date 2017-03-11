@@ -180,10 +180,10 @@ class InnerForm extends React.PureComponent {
 
     // 导出前必须选定了一些查询条件, 不允许导出全表
     // 防止误操作
-    if (Object.keys(newObj).length === 0) {
-      message.warning('导出时查询条件不能为空', 4.5);
-      return;
-    }
+    // if (Object.keys(newObj).length === 0) {
+    //   message.warning('导出时查询条件不能为空', 4.5);
+    //   return;
+    // }
 
     // ajax是不能处理下载请求的, 必须交给浏览器自己去处理
     // 坏处是我就不知道用户的下载是否成功了

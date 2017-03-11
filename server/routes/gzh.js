@@ -5,7 +5,7 @@ var router = express.Router();
 var multiparty = require('multiparty');
 var util = require('util');
 var xlsx = require('node-xlsx');
-//var xlsx = require('xlsx');
+
 var fs = require('fs');
 var gzhModel = require('../dao/gzhModel');
 var tool = require('../utils/tool');
@@ -16,7 +16,7 @@ router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 //请求配置
-router.post('/add',function(req,res,next){
+router.post('/insert',function(req,res,next){
     gzhDao.add(req,res,next);
 });
 router.post('/find',function(req,res,next){
@@ -28,7 +28,7 @@ router.post('/select',function(req,res,next){
 router.post('/update',function(req,res,next){
     gzhDao.update(req,res,next);
 });
-router.post('/delete',function(req,res,next){
+router.get('/delete',function(req,res,next){
     gzhDao.remove(req,res,next);
 });
 
@@ -65,14 +65,15 @@ router.post('/import', function(req, res, next){
           var sheet = obj[0];
          // console.log(sheet);
           var datas = sheet.data;
+          console.log(datas[0]);
               datas.splice(0,1)//去除头部： 序号	公众号	ID	分类	粉丝数/w	头条/元	二条/元	三条/元	四条/元	备注
                               //	是否开通评论功能	阅读量	是否认证	媒体手机	媒体QQ	折扣	下次更新时间	商务对接
           //console.log(datas);
            var model_arr = datas.reduce(gzhModel.gzhReducer,[]);
            //console.log(model_arr);
-           console.log(model_arr.length);
+           //console.log(model_arr.length);
            //gzhDao.add(model_arr,res,next);   
-           res.json({"data":"导入成功"+model_arr.length+"条，导入失败YY条，导入失败的行：1,2,3","errorMsg":"","success":true,"totalCount":model_arr.length});   
+           res.json({"data":"导入成功"+model_arr.length+"条微信报价单数据","errorMsg":"","success":true,"totalCount":model_arr.length});   
             
         }   
       });
@@ -85,5 +86,13 @@ router.post('/import', function(req, res, next){
    // res.end(util.inspect({status:"200"}));
   // res.end("===");
   });
+});
+/**
+ * 导出
+ */
+router.get('/export', function(req, res, next) {
+ var qObj = JSON.parse(decodeURIComponent(req.url).split("=")[1]);
+ req.body = qObj;
+  gzhDao.exportByFind(req,res,next);
 });
 module.exports = router;
