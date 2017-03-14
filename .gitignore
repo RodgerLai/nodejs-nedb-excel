@@ -9,7 +9,7 @@
 # node
 node_modules
 npm-debug.log
-server/db/data/*
+server/db/data/gzhdb
 server/public/uploadfile/*.xlsx
 # other
 # dist/
