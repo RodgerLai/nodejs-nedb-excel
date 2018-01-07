@@ -1,4 +1,4 @@
-# nodejs-nedb-excel(正在功能实现中)
+# nodejs-nedb-excel
 基于nodejs+webpack,以nosql轻量级嵌入式数据库nedb作为存储，页面渲染采用react+redux,样式框架为ant design,实现了excel表格上传导出以及可视化
 
 # 安装运行
