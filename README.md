@@ -16,3 +16,6 @@
 
 - 数据库：
 https://github.com/louischatriot/nedb
+
+# 截图
+![3daeff80-de07-4440-b23a-5f30540c0367](https://user-images.githubusercontent.com/10798088/39104919-398b076e-46e5-11e8-83a4-82c5e023a535.png)
