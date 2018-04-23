@@ -5,11 +5,11 @@
 
 - 克隆到本地 git clone https://github.com/RodgerLai/nodejs-nedb-excel
 - 打开文件夹 cd nodejs-nedb-excel
-- 安装依赖包 npm i
+- 安装依赖包 npm install
 - node后端服务启动: npm start
 - 前端资源编译（dev模式，热加载）：npm run dev
 - 浏览器打开：http://localhost:3000
-- 注意：npm start 和 npm run dev同时运行
+- 注意：终端执行npm start后保持运行
 
 # 截图
 ![3daeff80-de07-4440-b23a-5f30540c0367](https://user-images.githubusercontent.com/10798088/39104919-398b076e-46e5-11e8-83a4-82c5e023a535.png)
